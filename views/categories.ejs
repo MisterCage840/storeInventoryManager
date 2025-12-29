@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Categories</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <%- include("partials/nav", { links }) %>
+
+    <h2>Categories</h2>
+
+    <% if (!categories || categories.length === 0) { %>
+    <p>No categories found.</p>
+    <% } else { %>
+    <ul>
+      <% categories.forEach((c) => { %>
+      <li>
+        <a href="/categories/<%= c.id %>"><%= c.name %></a>
+      </li>
+      <% }) %>
+    </ul>
+    <% } %>
+  </body>
+</html>

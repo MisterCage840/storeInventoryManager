@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title><%= ingredient.name %></title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <%- include("partials/nav", { links }) %>
+
+    <h2><%= ingredient.name %></h2>
+
+    <p>Category: <%= ingredient.category_name %></p>
+    <p>Quantity: <%= ingredient.qty %> <%= ingredient.unit %></p>
+    <p>Minimum stock: <%= ingredient.min_stock %></p>
+
+    <a href="/ingredients/<%= ingredient.id %>/edit">Edit</a>
+
+    <form method="POST" action="/ingredients/<%= ingredient.id %>/delete">
+      <button type="submit">Delete</button>
+    </form>
+
+    <p><a href="/ingredients">Back</a></p>
+
+    <div id="deleteModal" class="modal hidden" aria-hidden="true">
+      <div
+        class="modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="deleteModalTitle"
+      >
+        <h3 id="deleteModalTitle">Confirm delete</h3>
+        <p class="muted">Enter delete password to delete this item.</p>
+
+        <input
+          id="deletePasswordInput"
+          type="password"
+          placeholder="Delete password"
+          autocomplete="off"
+        />
+
+        <div class="modal-actions">
+          <button type="button" id="deleteCancelBtn" class="btn-secondary">
+            Cancel
+          </button>
+          <button type="button" id="deleteConfirmBtn" class="btn-danger">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/delete-modal.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title><%= category.name %></title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <%- include("partials/nav", { links }) %>
+
+    <h2><%= category.name %></h2>
+
+    <% if (!ingredients || ingredients.length === 0) { %>
+    <p>No ingredients in this category yet.</p>
+    <% } else { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Stock</th>
+          <th>Min</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% ingredients.forEach((ing) => { %>
+        <tr>
+          <td>
+            <a href="/ingredients/<%= ing.id %>"><%= ing.name %></a>
+          </td>
+          <td><%= ing.qty %> <%= ing.unit %></td>
+          <td><%= ing.min_stock %> <%= ing.unit %></td>
+          <td><a href="/ingredients/<%= ing.id %>/edit">Edit</a></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <% } %>
+
+    <p><a href="/categories">← Back to categories</a></p>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>New Ingredient</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <%- include("partials/nav", { links }) %>
+
+    <h2>New Ingredient</h2>
+
+    <form method="POST" action="/ingredients">
+      <label>Name</label>
+      <input name="name" required />
+
+      <label>Quantity</label>
+      <input name="qty" type="number" step="0.01" required />
+
+      <label>Unit</label>
+      <select name="unit">
+        <option value="kg">kg</option>
+        <option value="liters">liters</option>
+        <option value="pcs">pcs</option>
+      </select>
+
+      <label>Minimum stock</label>
+      <input name="minStock" type="number" step="0.01" required />
+
+      <label>Category</label>
+      <select name="categoryId">
+        <% categories.forEach((c) => { %>
+        <option value="<%= c.id %>"><%= c.name %></option>
+        <% }) %>
+      </select>
+
+      <button type="submit">Create</button>
+    </form>
+
+    <p><a href="/ingredients">Cancel</a></p>
+  </body>
+</html>

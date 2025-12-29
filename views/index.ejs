@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ingredients</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <%- include("partials/nav", { links }) %>
+
+    <h2>Ingredients</h2>
+    <a href="/ingredients/new">Add Ingredient</a>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Stock</th>
+          <th>Min</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% ingredients.forEach((ing) => { %>
+        <tr
+          class="<%= Number(ing.qty) < Number(ing.min_stock) ? 'low-stock' : '' %>"
+        >
+          <td>
+            <a href="/ingredients/<%= ing.id %>"><%= ing.name %></a>
+          </td>
+          <td><%= ing.category_name %></td>
+          <td><%= ing.qty %> <%= ing.unit %></td>
+          <td><%= ing.min_stock %></td>
+          <td>
+            <a href="/ingredients/<%= ing.id %>/edit">Edit</a>
+            <form
+              method="POST"
+              action="/ingredients/<%= ing.id %>/delete"
+              style="display: inline"
+            >
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <div id="deleteModal" class="modal hidden" aria-hidden="true">
+      <div
+        class="modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="deleteModalTitle"
+      >
+        <h3 id="deleteModalTitle">Confirm delete</h3>
+        <p class="muted">Enter delete password to delete this item.</p>
+
+        <input
+          id="deletePasswordInput"
+          type="password"
+          placeholder="Delete password"
+          autocomplete="off"
+        />
+
+        <div class="modal-actions">
+          <button type="button" id="deleteCancelBtn" class="btn-secondary">
+            Cancel
+          </button>
+          <button type="button" id="deleteConfirmBtn" class="btn-danger">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/delete-modal.js" defer></script>
+  </body>
+</html>

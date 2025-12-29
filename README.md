@@ -1,10 +1,15 @@
 # storeInventoryManager
 Main Page:
 <img width="967" height="420" alt="image" src="https://github.com/user-attachments/assets/f3724728-2896-4161-977c-42eea0e8312e" />
+
+
 Editing Ingredients:
 <img width="987" height="674" alt="image" src="https://github.com/user-attachments/assets/18fb319f-a732-4da2-a13a-1df1d58420ec" />
+
+
 Viewiing ingredients by categories:
 <img width="948" height="334" alt="image" src="https://github.com/user-attachments/assets/bdc593af-752f-421a-b34b-70e043e72886" />
+
 
 
 Inventory Management Application

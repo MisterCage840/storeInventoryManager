@@ -1,5 +1,12 @@
 # storeInventoryManager
-<img width="972" height="803" alt="image" src="https://github.com/user-attachments/assets/f0dfe192-42f3-4dd7-bc7a-5a307ae5930a" />
+Main Page:
+<img width="967" height="420" alt="image" src="https://github.com/user-attachments/assets/f3724728-2896-4161-977c-42eea0e8312e" />
+Editing Ingredients:
+<img width="987" height="674" alt="image" src="https://github.com/user-attachments/assets/18fb319f-a732-4da2-a13a-1df1d58420ec" />
+Viewiing ingredients by categories:
+<img width="948" height="334" alt="image" src="https://github.com/user-attachments/assets/bdc593af-752f-421a-b34b-70e043e72886" />
+
+
 Inventory Management Application
 
 A full-stack Inventory Management System built with Node.js, Express, PostgreSQL, and EJS.
@@ -11,7 +18,7 @@ Node.js, Express
 
 PostgreSQL (Neon)
 
-EJS, HTML, CSS, Vanilla JS
+EJS, HTML, CSS, Javascript
 
 Render (Hosting)
 
